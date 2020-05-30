@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "nutrifrnd",
+  "private_key_id": "0c028305e398cf32ff738b531ea80c85379a28b6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDNWc3f/DXLPHgr\nkcBGiT/zYbrtvVI6PazLZK1NXzCONkRXStsHoNdmBssDuzn15ar4Wh471+fwNYwx\no968Je0DenQihsguQsB9XLFiL2aMKVFLil2PhcEog6BpGa3uJOH5Sk3GEmoOMF57\na6/u45TmI5tJk7V7A6qutFv74XvIUH5xfR/c/5I9Xgv8lvPSQkh4D48db+jnXbXd\nq5GSyqbOFPDy5YDooCHkbUN9ktC7k0hrteWNN14kiIYT9RWxGYhuK3CNPr4eMYKJ\nb/+jRxc0pVq6dckKxiaN3A5KDZH4MZBU4J/RE22lZvZQc1LNaDgADasNnJ1mVHrb\nJERrCVz9AgMBAAECggEAAZ5OEZBWyjHBTrKY3dVyFBR2mS4PSlc3F+lEtmHkK5LA\n6iE0ZbR+ThcKnY5psAbt2IQ5TcZvVQTPBIsik8AGxKq/5I/EXxz2kGZdHYV7HOqs\ncdh20U1ADvYumvVxWfmfcEwGHeQCQvddn0JjghH4F/I65JMN8JjATR0txmfqBlOc\ncigHgAPSiCQbUsh1LJ68j6wbAeQWVCAdaGwVV0C/EDgRsZqQL7fceP0Mln4DGHZg\nA9RysZaDzohK+rLPVEwA4yAygOeSeCubt07oyX+a5PxnCIz8+nz9fav60kZx+02P\ncR8/snykpzLJRB724JpLP0qGP8ZelPSBI6jQSE4+kQKBgQD8Ef66rJ/FdpVrrrcN\nn6+5YXrjWkmRJvQ0sdhq7e9JNhj7rJmb8EsrI4KKKDC83xHZhQPUXZIcIfzhntvL\nWuZwu1kOmdkfgJy5/vIQkfLR9tuBLKCxdRr5wUa0/a2J/qZNbGAw/b+MeGAWp+et\n8uRAPvEkVws0J/vooN780PJAKQKBgQDQjVpiMXQZH67ez1icD20MSI7hygq5yJ5G\nK9RCey37Ob8JgqM7UgUSFqcH317P+IYnLda7q3P+VMXf8F7qIQAypaU3Bu/3dqJ4\nSb+PNNI3kOjRZiuRRuB3j6I9KwjrGrs3qnOiwFMRFYOLsVpUB8gxdGZbcZ1gqB+G\nf68g4fIAtQKBgE3b9RWOCo/AsCihv9MKdwnIzV96XOzj3lyEbneg5N91QURDrPLY\nxy8c+c5Y2a0NLgNFLcij2mSsLuM14WgvvKwngjubU9CCNmbRE84AdsNZ/7Unpr8J\nj/qDM6bmEHtmV9HkXtXjGw51hCCbXlmBg/VAO9XguQo0K4BQaHAozhr5AoGAVoO9\nEez3/5AgJ/gWBy9zClxzQYFiL63k0rFN7YJSEdzjvhs+gdZFmjphciecmmO7qzcd\n1F6M0N3z9DEv/qpP/bKvtgMfuyWwwnu9hrff2QM5QdzDiBHB/ndMU1mt6nH9ZltE\neyiTjQvCtUmOcjuENdfWumqIYdd8tHv1d4ujq90CgYEAsPiFCzRNk2SKH12ena0/\nK0aP9IJDI8yT3wcOYu5mF6zmqOFk43X3nRwI4uCYZGLJJ8fhqx6Op7uXS2QsQWNp\n6DXvBzWg3OAb8AaZcVBSzuJZkHkeGOIC9ChrSVZRFn96RvMsddX4H6Dc3rK+aFmi\nvN8fI5lggUDdhD/EtTgs5b8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "nutrifrnd@nutrifrnd.iam.gserviceaccount.com",
+  "client_id": "115937346054914183153",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/nutrifrnd%40nutrifrnd.iam.gserviceaccount.com"
+}

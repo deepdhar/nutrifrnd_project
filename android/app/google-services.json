@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "920348634493",
+    "firebase_url": "https://nutrifrnd.firebaseio.com",
+    "project_id": "nutrifrnd",
+    "storage_bucket": "nutrifrnd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920348634493:android:4ebc7a86848fdfba2d3014",
+        "android_client_info": {
+          "package_name": "com.deepdhar.projectappflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920348634493-076g8ipgb7lo12f98j7pl20lkt55hj5k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.deepdhar.projectappflutter",
+            "certificate_hash": "9cb7bae58c14c26114b6cf5d11ee9f9d29156458"
+          }
+        },
+        {
+          "client_id": "920348634493-8jbok86pegk8h6oanj7ae1mn7lqcncqc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvIOEAHEoIkzwcuR8U8yNipPM7LvftrXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "920348634493-8jbok86pegk8h6oanj7ae1mn7lqcncqc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
