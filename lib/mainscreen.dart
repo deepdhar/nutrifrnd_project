@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'contact.dart';
+import 'corona.dart';
 import 'stayhome.dart';
 import 'card.dart';
 
@@ -102,313 +104,482 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   Widget _signin() {
-    int i;
-    final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: const Color(0xffE9E9E9),
-//      bottomNavigationBar: ClipRRect(
-////        borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
-////        child: BottomNavigationBar(
-////          iconSize: 29,
-////          selectedIconTheme: IconThemeData(color: Colors.teal),
-////          unselectedIconTheme: IconThemeData(
-////            color: Colors.black26,
-////          ),
-////          items: [
-////            BottomNavigationBarItem(
-////              icon: Padding(
-////                padding: const EdgeInsets.all(8.0),
-////                child: Container(
-////                  child: Icon(
-////                    Icons.home,
-////                  ),
-////                ),
-////              ),
-////              title: Text(
-////                'home',
-////                style: TextStyle(color: Colors.white),
-////              ),
-////            ),
-////            BottomNavigationBarItem(
-////              icon: Padding(
-////                padding: const EdgeInsets.all(8.0),
-////                child: Icon(
-////                  Icons.search,
-////                ),
-////              ),
-////              title: Text(
-////                'searcg'
-////                'search',
-////                style: TextStyle(color: Colors.white),
-////              ),
-////            ),
-////            BottomNavigationBarItem(
-////              icon: Padding(
-////                padding: const EdgeInsets.all(8.0),
-////                child: Container(
-////                  child: Icon(
-////                    Icons.person,
-////                  ),
-////                ),
-////              ),
-////              title: Text(
-////                'profile',
-////                style: TextStyle(color: Colors.white),
-////              ),
-////            ),
-////          ],
-////        ),
-//          ),
-      body: Stack(
+      backgroundColor: Colors.white,
+      body: ListView(
         children: <Widget>[
-          Positioned(
-            top: 0,
-            height: height * 0.32,
-            left: 0,
-            right: 0,
-            child: ClipRRect(
-              borderRadius:
-                  const BorderRadius.vertical(bottom: Radius.circular(40)),
-              child: Container(
-                color: Colors.white,
-                padding: const EdgeInsets.only(
-                    top: 41, left: 22, right: 16, bottom: 10),
-                child: Column(
-                  children: <Widget>[
-                    ListTile(
-                      title: Text(
-                        "nutrifrnd",
+          ClipRRect(
+            child: Container(
+              padding: const EdgeInsets.only(
+                  top: 25, left: 22, right: 16, bottom: 10),
+              child: Column(
+                children: <Widget>[
+                  ListTile(
+                    title: Text(
+                      "nutrifrnd",
+                      style: TextStyle(
+                          letterSpacing: 1,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.teal,
+                          fontFamily: "Philosopher"),
+                    ),
+                    trailing: GoogleUserCircleAvatar(
+                      identity: _currentUser,
+                    ),
+                    subtitle: Text(
+                      "Your Well Wisher, Your Friend!",
+                      style: TextStyle(
+                          color: Colors.black54,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: "Philosopher"),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 9,
+                  ),
+                  ListTile(
+                    title: Text(
+                      "Welcome to nutrifrnd,",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w800,
+                          color: Colors.teal,
+                          fontSize: 21,
+                          fontFamily: "Philosopher"),
+                    ),
+                    subtitle: Center(
+                      child: Text(
+                        "Personalized Diet Planning Based on Medical Condition    for Infants & Elders.",
                         style: TextStyle(
-                            fontSize: 28,
-                            fontWeight: FontWeight.w800,
-                            color: Colors.teal,
-                            fontFamily: "Philosopher"),
-                      ),
-                      trailing: Container(
-                        child: GoogleUserCircleAvatar(
-                          identity: _currentUser,
-                        ),
-                      ),
-                      subtitle: Text(
-                        "Your Well Wisher, Your Friend!",
-                        style: TextStyle(
-                            fontSize: 17,
                             color: Colors.black54,
                             fontWeight: FontWeight.w600,
+                            fontSize: 18,
                             fontFamily: "Philosopher"),
                       ),
                     ),
-                    SizedBox(
-                      height: 5,
+                    trailing: Image.asset(
+                      "assets/hand.png",
+                      color: Color(0xFF32B39B),
+                      height: 89,
+                      width: 83,
                     ),
-                    ListTile(
-                      title: Text(
-                        "Welcome to nutrifrnd,",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w800,
-                            color: Colors.teal,
-                            fontSize: 25,
-                            fontFamily: "Philosopher"),
-                      ),
-                      subtitle: Center(
-                        child: Text(
-                          "Personalized Diet Planning Based on Medical Condition    for Infants & Elders.",
-                          style: TextStyle(
-                              color: Colors.black54,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18,
-                              fontFamily: "Philosopher"),
-                        ),
-                      ),
-                      trailing: Image.asset(
-                        "images/icon.jpg",
-                        height: 89,
-                        width: 83,
-                      ),
-                    )
-                  ],
-                ),
+                  ),
+                  SizedBox(
+                    height: 11,
+                  ),
+                ],
               ),
             ),
           ),
-          Positioned(
-            top: height * 0.33,
-            left: 0,
-            right: 0,
-            height: height * 0.53,
+          Cards(),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 10.0,
+              left: 35,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  "Symptoms",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Philosopher",
+                      fontSize: 20,
+                      color: Colors.black87),
+                ),
+                SizedBox(height: 15),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      SizedBox(
+                        width: 1,
+                      ),
+                      SymptomCard(
+                        image: "assets/headache.jpeg",
+                        title: "Headache",
+                        isActive: true,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      SymptomCard(
+                        image: "assets/cough.webp",
+                        title: "Caugh",
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      SymptomCard(
+                        image: "assets/breadth.png",
+                        title: "breathing",
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      SymptomCard(
+                        image: "assets/Fever1.png",
+                        title: "Fever",
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 35,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  "Precautions",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Philosopher",
+                      fontSize: 20,
+                      color: Colors.black87),
+                ),
+                SizedBox(height: 15),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      SizedBox(
+                        width: 1,
+                      ),
+                      SymptomCard(
+                        image: "assets/mask.png",
+                        title: "Wear Masks",
+                        isActive: true,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      SymptomCard(
+                        image: "assets/wash.jpg",
+                        title: "Wash Hands",
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      SymptomCard(
+                        image: "assets/clean.png",
+                        title: "Clean Disinfect",
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      SymptomCard(
+                        image: "assets/eat.jpg",
+                        title: "Eat Healthy",
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 27,
+          ),
+          Expanded(
             child: Container(
+              margin: const EdgeInsets.only(
+                bottom: 40,
+                left: 32,
+                right: 32,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(26)),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    const Color(0xFF009688),
+                    const Color(0xFF48C0A4),
+                  ],
+                ),
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(
-                      bottom: 8,
-                      left: 32,
-                      right: 16,
-                    ),
-                    child: Text("ACTIVITIES",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 15,
-                          color: Colors.black54,
-                        )),
+                  SizedBox(
+                    height: 27,
                   ),
-                  Expanded(
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: <Widget>[
-                          SizedBox(
-                            width: 32,
-                          ),
-                          for (i = 0; i < meals.length; i++)
-                            _MealCard(
-                              meal: meals[i],
-                            )
-                        ],
+                  Padding(
+                    padding: const EdgeInsets.only(top: 0, left: 16),
+                    child: Text(
+                      'Be Safe Be Smart',
+                      style: TextStyle(
+                        color: Colors.tealAccent,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
                   SizedBox(
-                    width: 32,
-                    height: 10,
+                    height: 3,
                   ),
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.only(
-                        bottom: 10,
-                        left: 32,
-                        right: 32,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(26)),
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            const Color(0xFF009688),
-                            const Color(0xFF48C0A4),
-                          ],
-                        ),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 2.0, left: 16),
-                            child: Text(
-                              'Also Visit',
-                              style: TextStyle(
-                                color: Colors.tealAccent,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 1.0, left: 16),
-                            child: Text(
-                              'Fight COVID-19',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Row(
-                            children: <Widget>[
-                              SizedBox(
-                                width: 18,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                  color: Color(0xFF44BEA3),
-                                ),
-                                padding: const EdgeInsets.all(19),
-                                child: Image.asset(
-                                  "images/donate.png",
-                                  width: 30,
-                                  height: 30,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 18,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                  color: Color(0xFF44BEA3),
-                                ),
-                                padding: const EdgeInsets.all(19),
-                                child: Image.asset(
-                                  "images/corona.png",
-                                  width: 30,
-                                  height: 30,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 18,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                  color: Color(0xFF44BEA3),
-                                ),
-                                padding: const EdgeInsets.all(19),
-                                child: Image.asset(
-                                  "images/home.png",
-                                  width: 30,
-                                  height: 30,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 18,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                  color: Color(0xFF44BEA3),
-                                ),
-                                padding: const EdgeInsets.all(19),
-                                child: Image.asset(
-                                  "images/us.png",
-                                  width: 30,
-                                  height: 30,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 18,
-                              ),
-                            ],
-                          ),
-                        ],
+                  Padding(
+                    padding: const EdgeInsets.only(top: 1.0, left: 16),
+                    child: Text(
+                      "Call State Helpline at",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w800,
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      customLaunch("tel:01123978046");
+                    },
+                    child: Container(
+                      height: 30,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        color: Color(0xFF44BEA3),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 1.0, left: 16),
+                        child: Center(
+                          child: Text(
+                            "1075 or 011-23978046",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 13,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              margin: const EdgeInsets.only(
+                bottom: 40,
+                left: 32,
+                right: 32,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(26)),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    const Color(0xFF009688),
+                    const Color(0xFF48C0A4),
+                  ],
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(
+                    height: 25,
+                  ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 30.0, bottom: 0.0),
+                    padding: const EdgeInsets.only(top: 2.0, left: 16),
+                    child: Text(
+                      'Also Visit',
+                      style: TextStyle(
+                        color: Colors.tealAccent,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 1.0, left: 16),
+                    child: Text(
+                      'Fight COVID-19',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Center(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
-                        RaisedButton(
-                          color: Colors.teal[400],
-                          onPressed: _handleSignOut,
-                          child: Text('SIGN OUT'),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            customLaunch('https://www.pmcares.gov.in/en/');
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              color: Color(0xFF44BEA3),
+                            ),
+                            padding: const EdgeInsets.all(15),
+                            child: Image.asset(
+                              "assets/donate.png",
+                              width: 30,
+                              height: 30,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => CoronaScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              color: Color(0xFF44BEA3),
+                            ),
+                            padding: const EdgeInsets.all(15),
+                            child: Image.asset(
+                              "assets/corona.png",
+                              width: 30,
+                              height: 30,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => StayHomeScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              color: Color(0xFF44BEA3),
+                            ),
+                            padding: const EdgeInsets.all(15),
+                            child: Image.asset(
+                              "assets/home.png",
+                              width: 30,
+                              height: 30,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => ContactScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              color: Color(0xFF44BEA3),
+                            ),
+                            padding: const EdgeInsets.all(15),
+                            child: Image.asset(
+                              "assets/us.png",
+                              width: 30,
+                              height: 30,
+                            ),
+                          ),
                         ),
                       ],
                     ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              margin: const EdgeInsets.only(
+                bottom: 40,
+                left: 32,
+                right: 32,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(26)),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    const Color(0xFF009688),
+                    const Color(0xFF009688),
+                  ],
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(height: 8),
+                  FlatButton(
+                    onPressed: _handleSignOut,
+                    child: Container(
+                      height: 30,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        color: const Color(0xFF009688),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 1.0, left: 16),
+                        child: Center(
+                          child: Text(
+                            "SIGN OUT",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 8,
                   ),
                 ],
               ),
@@ -418,103 +589,6 @@ class _MainScreenState extends State<MainScreen> {
       ),
     );
   }
-
-//  Widget _signin() {
-//
-//    return Column(
-//      mainAxisSize: MainAxisSize.max,
-//      children: <Widget>[
-//        Container(
-//          color: Colors.grey[900],
-//          child: Column(
-//            children: <Widget>[
-//              ListTile(
-//                leading: GoogleUserCircleAvatar(
-//                  identity: _currentUser,
-//                ),
-//                title: Text(
-//                  'Hello, ',
-//                  style: TextStyle(
-//                    fontSize: 16.0,
-//                    fontWeight: FontWeight.bold,
-//                    color: Colors.white,
-//                  ),
-//                ),
-//                subtitle: Text(
-//                  _currentUser.displayName ?? '',
-//                  style: TextStyle(
-//                      fontFamily: 'OleoScript',
-//                      fontSize: 17.0,
-//                      color: Colors.grey),
-//                ),
-//              ),
-//              Padding(
-//                padding: const EdgeInsets.only(right: 10.0, bottom: 10.0),
-//                child: Row(
-//                  mainAxisAlignment: MainAxisAlignment.end,
-//                  children: <Widget>[
-//                    RaisedButton(
-//                      color: Colors.teal[400],
-//                      onPressed: _handleSignOut,
-//                      child: Text('SIGN OUT'),
-//                    ),
-//                  ],
-//                ),
-//              ),
-//            ],
-//          ),
-//        ), //SignOut Button
-//        SizedBox(height: 80.0),
-//        Container(
-//          child: FlatButton(
-//            onPressed: () {
-//              Navigator.push(
-//                context,
-//                MaterialPageRoute(builder: (context) => TestPage()),
-//              );
-//            },
-//            child: Card(
-//              margin: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-//              color: Colors.pink[600],
-//              child: ListTile(
-//                title: Center(
-//                  child: Text(
-//                    'Take a Test',
-//                    style: TextStyle(
-//                      color: Colors.white,
-//                      fontFamily: 'Basic',
-//                      fontSize: 18.0,
-//                    ),
-//                  ),
-//                ),
-//              ),
-//            ),
-//          ),
-//        ), //Explore Button
-//        Container(
-//          child: FlatButton(
-//            onPressed: _launchURL,
-//            child: Card(
-//              margin: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-//              color: Colors.pink[600],
-//              child: ListTile(
-//                title: Center(
-//                  child: Text(
-//                    'Get Your Diet Plan',
-//                    style: TextStyle(
-//                      color: Colors.white,
-//                      fontSize: 18.0,
-//                      fontFamily: 'Basic',
-//                    ),
-//                  ),
-//                ),
-//              ),
-//            ),
-//          ),
-//        )
-//      ],
-//    );
-//  }
 
   Future<void> _handleSignIn() async {
     try {
@@ -527,87 +601,60 @@ class _MainScreenState extends State<MainScreen> {
   Future<void> _handleSignOut() async {
     _googleSignIn.disconnect();
   }
-
-  _launchURL() async {
-    const url = 'https://bit.ly/nutrifrnds';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
 }
 
-class _MealCard extends StatelessWidget {
-  final Meal meal;
-
-  const _MealCard({Key key, @required this.meal}) : super(key: key);
+class SymptomCard extends StatelessWidget {
+  final String image;
+  final String title;
+  final bool isActive;
+  const SymptomCard({
+    Key key,
+    this.image,
+    this.title,
+    this.isActive = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(
-        right: 20,
-        bottom: 10,
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: Colors.white,
+        boxShadow: [
+          isActive
+              ? BoxShadow(
+                  offset: Offset(0, 10),
+                  blurRadius: 20,
+                  color: Colors.black12,
+                )
+              : BoxShadow(
+                  offset: Offset(0, 3),
+                  blurRadius: 6,
+                  color: Colors.black12,
+                ),
+        ],
       ),
-      child: Material(
-        borderRadius: BorderRadius.all(Radius.circular(20)),
-        elevation: 4,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            Flexible(
-              fit: FlexFit.tight,
-              child: Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                  child: Image.asset(
-                    meal.imagepath,
-                    width: 150,
-                    fit: BoxFit.fitHeight,
-                  ),
-                ),
-              ),
+      child: Column(
+        children: <Widget>[
+          Image.asset(image, height: 90),
+          Text(
+            title,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontFamily: "Philosopher",
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 12.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      meal.mealTime,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16,
-                        color: Colors.black54,
-                      ),
-                    ),
-                    Text(
-                      meal.timetaken,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 15,
-                        color: Colors.black54,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 16,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
+  }
+}
+
+void customLaunch(command) async {
+  if (await canLaunch(command)) {
+    await launch(command);
+  } else {
+    print('cudnt $command');
   }
 }

@@ -1,25 +1,30 @@
+import 'dietplan.dart';
+import 'quiz.dart';
 import 'package:flutter/material.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
-import 'quiz_brain.dart';
+import "package:rflutter_alert/rflutter_alert.dart";
 
 QuizBrain quizBrain = QuizBrain();
 
 class TestPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: Text(
-          'COVID-19 Test',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
+    return Material(
+      child: Scaffold(
+        backgroundColor: Color(0xFF44BEA3),
+        appBar: AppBar(
+          backgroundColor: Color(0xFF44BEA3),
+          title: Text(
+            '        COVID-19 Test',
+            style: TextStyle(
+                letterSpacing: 1,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontFamily: "Philosopher"),
           ),
         ),
-      ),
-      body: SafeArea(
-        child: Test(),
+        body: SafeArea(
+          child: Test(),
+        ),
       ),
     );
   }
@@ -60,7 +65,7 @@ class _TestState extends State<Test> {
               DialogButton(
                 color: Colors.orange,
                 child: Text(
-                  'Go Back',
+                  'Call Helpline',
                   style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 18),
                 ),
                 onPressed: () {
@@ -68,7 +73,7 @@ class _TestState extends State<Test> {
                 },
               ),
             ]).show();
-      } else if (yes == 0) {
+      } else {
         Alert(
             context: context,
             title: 'Test Finished!',
@@ -77,11 +82,15 @@ class _TestState extends State<Test> {
               DialogButton(
                 color: Colors.orange,
                 child: Text(
-                  'Go Back',
+                  'You Can Follow This Diet',
                   style: TextStyle(fontFamily: 'Source Sans Pro', fontSize: 18),
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => DietPage(),
+                    ),
+                  );
                 },
               ),
             ]).show();
@@ -111,57 +120,89 @@ class _TestState extends State<Test> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
-                  color: Colors.black,
+                  color: Colors.white,
                   fontFamily: 'Source Sans Pro',
                 ),
               ),
             ),
           ),
         ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: FlatButton(
-              textColor: Colors.white,
-              color: Colors.green,
-              child: Text(
-                'Yes',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22.0,
-                  fontFamily: 'Basic',
+        Padding(
+          padding: const EdgeInsets.all(20),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Color(0xFF44BEA3),
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black26,
+                  offset: Offset(0, 2),
+                  blurRadius: 5,
+                ),
+              ],
+            ),
+            child: Expanded(
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: FlatButton(
+                  textColor: Colors.white,
+                  color: Color(0xFF44BEA3),
+                  child: Text(
+                    'Yes',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22.0,
+                      fontFamily: 'Basic',
+                    ),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      quizBrain.nextQuestion();
+                    });
+                    yes++;
+                    checkAnswer(true);
+                  },
                 ),
               ),
-              onPressed: () {
-                setState(() {
-                  quizBrain.nextQuestion();
-                });
-                yes++;
-                checkAnswer(true);
-              },
             ),
           ),
         ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: FlatButton(
+        Padding(
+          padding: const EdgeInsets.all(20),
+          child: Container(
+            decoration: BoxDecoration(
               color: Colors.red,
-              child: Text(
-                'No',
-                style: TextStyle(
-                  fontSize: 22.0,
-                  color: Colors.white,
-                  fontFamily: 'Basic',
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black54,
+                  offset: Offset(0, 2),
+                  blurRadius: 5,
+                ),
+              ],
+            ),
+            child: Expanded(
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: FlatButton(
+                  color: Colors.red,
+                  child: Text(
+                    'No',
+                    style: TextStyle(
+                      fontSize: 22.0,
+                      color: Colors.white,
+                      fontFamily: 'Basic',
+                    ),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      quizBrain.nextQuestion();
+                    });
+                    no++;
+                    checkAnswer(true);
+                  },
                 ),
               ),
-              onPressed: () {
-                setState(() {
-                  quizBrain.nextQuestion();
-                });
-                no++;
-                checkAnswer(true);
-              },
             ),
           ),
         ),
