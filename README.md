@@ -1,5 +1,5 @@
 <p align="center">
-  ![edited](https://user-images.githubusercontent.com/53803245/109621486-08865e80-7b61-11eb-8546-746c1c794b53.png)
+  <img style="border-width: 0" width="400" height="400" src="https://user-images.githubusercontent.com/53803245/109621486-08865e80-7b61-11eb-8546-746c1c794b53.png" alt=" App logo">
 </p>
 
 # nutrifrnd
