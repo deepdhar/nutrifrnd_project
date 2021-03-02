@@ -1,3 +1,7 @@
+<p align="center">
+  ![edited](https://user-images.githubusercontent.com/53803245/109621486-08865e80-7b61-11eb-8546-746c1c794b53.png)
+</p>
+
 # nutrifrnd
 
 Provides nutritional support and diet plans for infants and adults to stay fit in quarantine.
