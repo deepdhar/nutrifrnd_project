@@ -15,7 +15,7 @@ Since novel corona virus striked our lives, we all are living in quarantine and 
 ![ss](https://user-images.githubusercontent.com/53803245/109620579-0cfe4780-7b60-11eb-9e8d-a88a70cb71ae.jpg)
 
 ## Tech/ Framework Used
-1. [FLutter](https://flutter.dev/)
+1. [Flutter](https://flutter.dev/)
 2. [Firebase](https://firebase.google.com/)
 
 <p align="center">Developers <a href="https://www.linkedin.com/in/deep-dhar/">Deep</a> & <a href="https://www.linkedin.com/in/alok-kumar-987b4b190/">Alok</a></p>
